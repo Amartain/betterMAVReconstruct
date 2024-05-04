@@ -10,7 +10,7 @@ def display(root):
 
     tk.Button(text="Vonalak listája", width=20, height=2, command=lambda: list_Lines(root)).pack(expand=True)
 
-    tk.Button(text="Városok listája", width=20, height=2, command=lambda: show_list_cities(True)).pack(expand=True)
+    tk.Button(text="Városok listája", width=20, height=2, command=lambda: show_list_cities(root)).pack(expand=True)
 
     tk.Button(text="Felhasznalok listaja", width=20, height=2, command=lambda: list_users(root)).pack(expand=True)
 
@@ -20,6 +20,9 @@ def display(root):
     tk.Button(text="Felhasznaló törlése", width=20, height=2, command=lambda:show_delete_user(root)).pack(expand=True)
 
     tk.Button(text="Város hozzáadása", width=20, height=2, command=lambda: show_add_city(root)).pack(
+        expand=True)
+
+    tk.Button(text="Állomás hozzáadása", width=20, height=2, command=lambda: show_add_station(root)).pack(
         expand=True)
 
     tk.Button(text="Kijelentkezés", width=20, height=2, command=lambda: login.open_login(root)).pack(expand=True)

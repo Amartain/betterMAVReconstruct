@@ -2,7 +2,7 @@ from a_commands import *
 from a_gui import *
 import db_connect as connect
 import f_user_main as user
-import f_GUI_factory as Maker
+import GUI_factory as Maker
 
 
 def db_facts():
