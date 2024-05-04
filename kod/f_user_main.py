@@ -85,28 +85,4 @@ def list_Lines(root):
     db.close()
 
 
-def list_users(root):
-    for widget in root.winfo_children():
-        widget.destroy()
 
-    db = connect.connect()
-    cursor = db.cursor()
-
-    cursor.execute("Select email, nev, utastipus FROM felhasznalok")
-    result = cursor.fetchall()
-
-    print(result)
-
-    tree = ttk.Treeview(root, columns=("C1", "C2", "C3"), show="headings")
-    tree.heading("#1", text="E-mail")
-    tree.heading("#2", text="Név")
-    tree.heading("#3", text="Utastípus")
-
-    for row in result:
-        tree.insert("", "end", values=row)
-
-    tree.pack(expand=True, fill="both", pady=10)
-
-    tk.Button(text="Vissza", width=20, height=2, command=lambda: returnTo(root)).pack(expand=True)
-
-    db.close()

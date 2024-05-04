@@ -1,10 +1,13 @@
 from a_commands import *
+import db_connect as connect
+import f_admin as admin
+from a_gui import *
 
 def show_add_city(root):
     for widget in root.winfo_children():
         widget.destroy()
 
-    tk.Label(root, text='Állomás neve').pack(pady=10)
+    tk.Label(root, text='Város neve').pack(pady=10)
     global nevE
     nevE = tk.Entry(root)
     nevE.pack(pady=10)
@@ -24,8 +27,11 @@ def show_add_city(root):
     okAE = tk.Button(root, text='INSERT', width=20, height=2, command=insert_city)
     okAE.pack()
 
-    backButton = tk.Button(root, text='Vissza', width=20, height=2, command=dp.admin_display).pack(pady=10)
+    backButton = tk.Button(root, text='Vissza', width=20, height=2, command=lambda: returnTo(root)).pack(pady=10)
 
+
+def returnTo(root):
+    admin.display(root)
 
 def insert_city():
     nev = nevE.get()

@@ -73,7 +73,7 @@ def login(root):
         else:
             global Email
             Email = result[0]
-            if result[1] == 'admin':
+            if result[1] == 'Ada':
                 MessageBox.showinfo("Info", "Üdvözöljük {} adminunk!".format(result[1]))
                 global felhasznalo_email
                 admin.display(root)
