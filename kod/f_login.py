@@ -1,11 +1,12 @@
 import tkinter as tk
-import kod.connect as conn
+import kod.db_connect as conn
 from a_commands import *
 from a_gui import *
 import f_register as reg
-
 global login_id_entry
 global login_password_entry
+import f_user_main as user
+import f_admin as admin
 
 
 def open_login(root):
@@ -32,12 +33,13 @@ def open_login(root):
     login_password_entry = tk.Entry(root, show='*')
     login_password_entry.pack(pady=10)
 
-    login_button = tk.Button(root, text='Belépés', width=20, height=2, command=login)
+    login_button = tk.Button(root, text='Belépés', width=20, height=2, command=lambda: login(root))
     login_button.pack(pady=10)
 
     register_button = tk.Button(root, text='Regisztráció', width=20, height=2,
                                 command=lambda: reg.open_registration(root))
     register_button.pack(pady=10)
+
 
 
 def lerr(lineNum):
@@ -48,7 +50,7 @@ def hello():
     print("Hello Arda")
 
 
-def login():
+def login(root):
     email = login_id_entry.get()
     jelszo = login_password_entry.get()
     if email[len(email) - 1] == ";":
@@ -74,10 +76,10 @@ def login():
             if result[1] == 'admin':
                 MessageBox.showinfo("Info", "Üdvözöljük {} adminunk!".format(result[1]))
                 global felhasznalo_email
-                dp.admin_display()
+                admin.display(root)
             else:
                 MessageBox.showinfo("Info", "Üdvözöljük {}!".format(result[1]))
-                dp.display()
+                user.display(root)
     except oracledb.Error as err:
         MessageBox.showinfo("Hiba", "Hiba történt a belépés során: {}".format(err))
 

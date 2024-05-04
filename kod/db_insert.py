@@ -1,6 +1,6 @@
 from a_commands import *
 
-def add_city(root):
+def show_add_city(root):
     for widget in root.winfo_children():
         widget.destroy()
 

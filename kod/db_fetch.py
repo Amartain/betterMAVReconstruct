@@ -14,7 +14,7 @@ def list_city(root, result):
     searchButton = tk.Button(root, text="Keresés", width=20, height=2, command=search_by_city)
     searchButton.pack(pady=10)
 
-    factsButton = tk.Button(root, text="érdekességek", width=20, height=2, command=facts.display_facts)
+    factsButton = tk.Button(root, text="érdekességek", width=20, height=2, command=facts.fetch_facts)
     factsButton.pack(pady=10)
 
     schedualLabel = tk.Label(root, text="Menetrendek")

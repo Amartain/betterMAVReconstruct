@@ -1,4 +1,4 @@
-import a_gui
+import a_gui as gui
 
 
 if __name__ == '__main__':
